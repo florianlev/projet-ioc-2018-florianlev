@@ -6,7 +6,7 @@ import com.projetioc.seisme.vue.SeismeVue;
 
 public class ControleurSeisme {
 	
-	protected SeismeVue vue;
+	protected SeismeVue vue = null;
 	
 	public ControleurSeisme(SeismeVue vue)
 	{

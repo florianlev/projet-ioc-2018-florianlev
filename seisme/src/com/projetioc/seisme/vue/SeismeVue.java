@@ -8,12 +8,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
@@ -21,43 +15,30 @@ import javafx.scene.control.TabPane;
 public class SeismeVue extends Application {
 	
 	protected ControleurSeisme controleur;
-
+	protected String texte;
+	private int page;
+	private List<String> liste;
+	private Stage scenePrincipale;
+	
+	
 	public SeismeVue()
 	{
 		this.controleur = new ControleurSeisme(this);
 	}
 	
-	public void afficherMenu(String texte, int page)
-	{
-
-		
-	}
-	
-	public void afficherListe(List<String> liste, int page)
-	{
-		
-	}
-	
-	public void afficherPagination(int listeNumeros)
-	{
-		
-	}
-	
-
-	
 	public void start(Stage scenePrincipale)
 	{
-		final Tab tab1 = new Tab("lala"); 
+		this.scenePrincipale = scenePrincipale;
+		System.out.println(texte);	
+		final Tab tab1 = new Tab(texte); 
 		//tab1.setContent(rectangle); 
-		final Tab tab2 = new Tab("Onglet 2"); 
+		//final Tab tab2 = new Tab("Onglet 2"); 
 		TabPane tabPane = new TabPane(); 
-		tabPane.getTabs().setAll(tab1, tab2);
+		tabPane.getTabs().setAll(tab1);
 		
 		
 		StackPane racine = new StackPane();
-		//racine.getChildren().add(this.actionDireBonjour);
-		//racine.getChildren().add(actionDireBonjour);
-		//scenePrincipale.setScene(new Scene(racine, 300, 250));
+
 		racine.getChildren().add(tabPane);
 		
 		Scene scene = new Scene(racine, 300,250);
@@ -67,6 +48,33 @@ public class SeismeVue extends Application {
 		scenePrincipale.show();
 		
 	}
+	
+
+
+	
+	public void afficherMenu(String texte, int page)
+	{	
+		this.texte = texte;
+		this.page = page;
+		
+		
+		
+	}
+	
+	public void afficherListe(List<String> liste, int page)
+	{
+		this.liste = liste;
+		this.page = page;
+		
+	}
+	
+	public void afficherPagination(List<String> listeNumeros)
+	{
+		
+	}
+	
+	
+	
 }
 
 
