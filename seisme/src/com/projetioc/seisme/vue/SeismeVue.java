@@ -1,4 +1,6 @@
 package com.projetioc.seisme.vue;
+import java.util.List;
+
 import com.projetioc.seisme.action.ControleurSeisme;
 
 
@@ -19,16 +21,33 @@ import javafx.scene.control.TabPane;
 public class SeismeVue extends Application {
 	
 	protected ControleurSeisme controleur;
-	
+
 	public SeismeVue()
 	{
 		this.controleur = new ControleurSeisme(this);
 	}
+	
+	public void afficherMenu(String texte, int page)
+	{
+
+		
+	}
+	
+	public void afficherListe(List<String> liste, int page)
+	{
+		
+	}
+	
+	public void afficherPagination(int listeNumeros)
+	{
+		
+	}
+	
 
 	
 	public void start(Stage scenePrincipale)
 	{
-		final Tab tab1 = new Tab("Onglet 1"); 
+		final Tab tab1 = new Tab("lala"); 
 		//tab1.setContent(rectangle); 
 		final Tab tab2 = new Tab("Onglet 2"); 
 		TabPane tabPane = new TabPane(); 

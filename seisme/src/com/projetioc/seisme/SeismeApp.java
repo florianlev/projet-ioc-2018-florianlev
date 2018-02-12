@@ -10,6 +10,7 @@ public class SeismeApp {
 		SeismeVue seismeVue = new SeismeVue();
 		
 		SeismeVue.launch(SeismeVue.class, parametres);
+		//seismeVue.afficherMenu(parametres, "test", 5);
 	}
 
 }
