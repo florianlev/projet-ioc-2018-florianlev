@@ -13,9 +13,8 @@ public class SeismeApp {
 		// TODO Auto-generated method stub
 		
 		SeismeVue seismeVue = new SeismeVue();
-		ControleurSeisme controleur = new ControleurSeisme(seismeVue);
 		SeismeVue.launch(SeismeVue.class, parametres);
-		//seismeVue.afficherMenu(parametres, "test", 5);
+
 
 		
 	}
