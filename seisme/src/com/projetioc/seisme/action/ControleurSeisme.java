@@ -1,6 +1,9 @@
 package com.projetioc.seisme.action;
 import java.util.ArrayList;
 import java.util.List;
+import com.projetioc.seisme.modele.Ville;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.projetioc.seisme.vue.SeismeVue;
 
@@ -17,6 +20,7 @@ public class ControleurSeisme {
 	
 	public void afficherOnglets()
 	{
+		
 		vue.afficherMenu("Mondial", 1);
 		vue.afficherMenu("San Diego", 2);
 		vue.afficherMenu("Montreal", 3);

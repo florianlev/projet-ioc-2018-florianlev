@@ -32,6 +32,7 @@ public class SeismeVue<liste> extends Application {
 	protected Tab ville3;
 	protected Tab ville4;
 	protected Tab ville5;
+	protected Tab ville6;
 	
 
 	
@@ -40,6 +41,7 @@ public class SeismeVue<liste> extends Application {
 	protected Text texte3;
 	protected Text texte4;
 	protected Text texte5;
+	protected Text texte6;
 	private List<String> liste;
 	
 	
@@ -65,6 +67,9 @@ public class SeismeVue<liste> extends Application {
 		
 		ville5 = new Tab("");
 		tabPane.getTabs().add(ville5);
+		
+		ville6 = new Tab("");
+		tabPane.getTabs().add(ville6);
 
 		Scene scene = new Scene(tabPane, 300,250);
 		scenePrincipale.setScene(scene);
@@ -99,6 +104,9 @@ public class SeismeVue<liste> extends Application {
 			break;
 		case 5:
 			this.ville5.setText(texte);
+			break;
+		case 6:
+			this.ville6.setText(texte);
 			break;
 		}
 		
@@ -145,6 +153,11 @@ public class SeismeVue<liste> extends Application {
 					ListView<String> listeview5 = new ListView<String>();
 					listeview5.setItems(items);
 					ville5.setContent(listeview5);
+					break;
+				case 6:
+					ListView<String> listeview6 = new ListView<String>();
+					listeview6.setItems(items);
+					ville5.setContent(listeview6);
 					break;
 				
 			}

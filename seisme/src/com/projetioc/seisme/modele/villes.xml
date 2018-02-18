@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+>
+
+
+	<bean id="ListeDesVilles" class="com.projetioc.seisme.modele.ListeDesVilles" >
+		<property name="listeVilles" value="listeVillesPreparee"/>
+		
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.ListFactoryBean" >
+		<property name="listeVilles" value="listeVillesPreparee"/>
+		
+	</bean>
+	
+	<bean id="SanDiego" class="com.projetioc.seisme.modele.Villes" >
+		<property name="nom" value="San Diego"/>
+
+		
+	</bean>
+	
+	<bean id="Montreal" class="com.projetioc.seisme.modele.Villes" >
+		<property name="nom" value="Montreal"/>
+
+		
+	</bean>
+	
+	<bean id="LosAngeles" class="com.projetioc.seisme.modele.Villes" >
+		<property name="nom" value="Los Angeles"/>
+
+		
+	</bean>
+	<bean id="Tokyo" class="com.projetioc.seisme.modele.Villes" >
+		<property name="nom" value="Tokyo"/>
+
+		
+	</bean>
+	<bean id="Quebec" class="com.projetioc.seisme.modele.Villes" >
+		<property name="nom" value="Quebec"/>
+		
+	</bean>
+	
+
+
+</beans>
