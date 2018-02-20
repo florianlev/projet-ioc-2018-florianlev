@@ -21,6 +21,25 @@ public class ControleurSeisme {
 	public void afficherOnglets()
 	{
 		
+		
+		ApplicationContext contexte =
+				new ClassPathXmlApplicationContext("com/projetioc/seisme/modele/Villes.xml");
+		
+		Ville montreal = (Ville)contexte.getBean("montreal");
+		System.out.println("Nom : " + montreal.getNom());
+		
+		Ville sanDiego = (Ville)contexte.getBean("sanDiego");
+		System.out.println("Nom : " + sanDiego.getNom());
+		
+		Ville losAngeles = (Ville)contexte.getBean("losAngeles");
+		System.out.println("Nom : " + losAngeles.getNom());
+		
+		Ville tokyo = (Ville)contexte.getBean("tokyo");
+		System.out.println("Nom : " + tokyo.getNom());
+		
+		
+		List<Ville> liste = new LinkedList<Ville>();
+		
 		vue.afficherMenu("Mondial", 1);
 		vue.afficherMenu("San Diego", 2);
 		vue.afficherMenu("Montreal", 3);

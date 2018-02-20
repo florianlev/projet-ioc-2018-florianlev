@@ -6,43 +6,62 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 >
 
 
-	<bean id="ListeDesVilles" class="com.projetioc.seisme.modele.ListeDesVilles" >
-		<property name="listeVilles" value="listeVillesPreparee"/>
-		
-	</bean>
-	
-	<bean class="org.springframework.beans.factory.config.ListFactoryBean" >
-		<property name="listeVilles" value="listeVillesPreparee"/>
-		
-	</bean>
-	
-	<bean id="SanDiego" class="com.projetioc.seisme.modele.Villes" >
-		<property name="nom" value="San Diego"/>
-
-		
-	</bean>
-	
-	<bean id="Montreal" class="com.projetioc.seisme.modele.Villes" >
+	<bean id="montreal" class ="com.projetioc.seisme.modele.Ville">
 		<property name="nom" value="Montreal"/>
-
-		
+	
 	</bean>
 	
-	<bean id="LosAngeles" class="com.projetioc.seisme.modele.Villes" >
+	<bean id="sanDiego" class ="com.projetioc.seisme.modele.Ville">
+		<property name="nom" value="San Diego"/>
+	
+	</bean>
+	
+	<bean id="losAngeles" class ="com.projetioc.seisme.modele.Ville">
 		<property name="nom" value="Los Angeles"/>
-
-		
+	
 	</bean>
-	<bean id="Tokyo" class="com.projetioc.seisme.modele.Villes" >
+	
+	<bean id="tokyo" class ="com.projetioc.seisme.modele.Ville">
 		<property name="nom" value="Tokyo"/>
-
-		
+	
 	</bean>
-	<bean id="Quebec" class="com.projetioc.seisme.modele.Villes" >
-		<property name="nom" value="Quebec"/>
+
+	<bean id="listeDesVilles" class="com.projetioc.seisme.modele.ListeDesVilles" >
+		<property name="listeVilles" ref="listeVillesPreparee"/>
 		
 	</bean>
 	
+	<bean id="listeVillesPreparee" class="org.springframework.beans.factory.config.ListFactoryBean" >
+		
+		<property name="sourceList">
+			<list>
+				<bean class ="com.projetioc.seisme.modele.Ville">
+					<property name="nom" value="Montreal"/>
+	
+				</bean>
+				
+				<bean class ="com.projetioc.seisme.modele.Ville">
+					<property name="nom" value="San Diego"/>
+	
+				</bean>
+				
+				<bean class ="com.projetioc.seisme.modele.Ville">
+					<property name="nom" value="Los Angeles"/>
+	
+				</bean>
+				
+				<bean class ="com.projetioc.seisme.modele.Ville">
+					<property name="nom" value="Tokyo"/>
+	
+				</bean>
+			
+			</list>
+		</property>
+		<property name="targetListClass">
+			<value>java.util.ArrayList</value>
+		</property>
+				
+	</bean>
 
 
 </beans>
