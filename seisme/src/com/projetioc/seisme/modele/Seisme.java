@@ -2,36 +2,52 @@ package com.projetioc.seisme.modele;
 
 public class Seisme {
 	
-	private int earthQuakeID;
-	private float latitude;
-	private float longitude;
-	private float magnitude;
+	private String  nom;
+	private String latitude;
+	private String longitude;
+	private String magnitude;
 	
-	
-	public int getEarthQuakeID() {
-		return earthQuakeID;
+	public Seisme()
+	{
+		nom = "";
+		latitude = "";
+		longitude = "";
+		magnitude =  "";
+		
 	}
-	public void setEarthQuakeID(int earthQuakeID) {
-		this.earthQuakeID = earthQuakeID;
+
+	public String getNom() {
+		return nom;
 	}
-	public float getLatitude() {
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(float latitude) {
+
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public float getLongitude() {
+
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(float longitude) {
+
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public float getMagnitude() {
+
+	public String getMagnitude() {
 		return magnitude;
 	}
-	public void setMagnitude(float magnitude) {
+
+	public void setMagnitude(String magnitude) {
 		this.magnitude = magnitude;
 	}
-	
+
+
 	
 }

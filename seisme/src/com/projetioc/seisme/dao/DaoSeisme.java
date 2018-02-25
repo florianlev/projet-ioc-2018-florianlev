@@ -19,9 +19,16 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.projetioc.seisme.modele.Seisme;
+
 public class DaoSeisme {
 	
-	//private List<String<String>> listeSeisme;
+	List<Seisme> listeSeisme;
+	
+	public DaoSeisme()
+	{
+		listeSeisme = new ArrayList<>();
+	}
 	
 	
 	
@@ -95,7 +102,6 @@ public class DaoSeisme {
 	
 	public void rechercherMondialSeisme()
 	{
-		//listeSeisme = new ArrayList<>();
 		String xmlRssSeismeMondial = "";
 		URL urlRssSeismeMondial;
 		try 
@@ -117,27 +123,42 @@ public class DaoSeisme {
 					NodeList noeudsListeSeisme = docListeSeisme.getElementsByTagName("event");
 					for(int position = 0; position < noeudsListeSeisme.getLength(); position++)
 					{
-						Node noeudFruit = noeudsListeSeisme.item(position);
+						
+						Seisme seisme = new Seisme();
+						Node noeudSeisme = noeudsListeSeisme.item(position);
 						
 						//System.out.println(noeudFruit.getTextContent());
-						Element elementSeisme = (Element)noeudFruit;
+						Element elementSeisme = (Element)noeudSeisme;
 
 						//Recuper le nom
-						Node descriptionSeisme = elementSeisme.getElementsByTagName("description").item(0);// juste un nom a chercher dans le fruit
-						Element elementDescription = (Element)descriptionSeisme;
-						String description = elementDescription.getTextContent();
+						Node noeudNom = elementSeisme.getElementsByTagName("description").item(0);
+						Element elementNom = (Element)noeudNom;
+						seisme.setNom(elementNom.getTextContent());
 						
 						
-						System.out.println("Description : " + description);
+						//Latitude
+						Node noeudLatitude = elementSeisme.getElementsByTagName("latitude").item(0);
+						Element elementLatitude = (Element)noeudLatitude;
+						seisme.setLatitude(elementLatitude.getTextContent());
 						
-						// Récupérer la couleur
+						//Longitude
+						
+						Node noeudLongitude = elementSeisme.getElementsByTagName("longitude").item(0);
+						Element elementLongitude = (Element)noeudLongitude;
+						seisme.setLongitude(elementLongitude.getTextContent());
+						
+						//magnitude
+						
+						Node noeudMagnitude = elementSeisme.getElementsByTagName("longitude").item(0);
+						Element elementMagnitude = (Element)noeudMagnitude;
+						seisme.setMagnitude(elementMagnitude.getTextContent());
 						
 						
-						//listeSeisme.add(region, nom);
+						listeSeisme.add(seisme);
 						
-						//Fruit fruit = new Fruit(nom, couleur);
-						//listeFruits.put(fruit);
 						
+						
+					
 					}
 				} catch (SAXException | IOException e) {
 					// TODO Auto-generated catch block
@@ -156,6 +177,12 @@ public class DaoSeisme {
 
 		//System.out.println(xmlRssSeismeVille);
 		
+	}
+	
+	public List<Seisme> getListeSeisme()
+	{
+		rechercherMondialSeisme();
+		return listeSeisme;
 	}
 	
 	
