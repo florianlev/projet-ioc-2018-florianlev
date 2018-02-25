@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.projetioc.seisme.action.ControleurSeisme;
+import com.projetioc.seisme.dao.DaoSeisme;
 import com.projetioc.seisme.modele.Ville;
 import com.projetioc.seisme.vue.SeismeVue;
 import java.util.Iterator;

@@ -1,6 +1,11 @@
 package com.projetioc.seisme.action;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+
+import com.projetioc.seisme.dao.DaoSeisme;
+import com.projetioc.seisme.modele.ListeDesVilles;
 import com.projetioc.seisme.modele.Ville;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,35 +27,35 @@ public class ControleurSeisme {
 	{
 		
 		
+		
 		ApplicationContext contexte =
 				new ClassPathXmlApplicationContext("com/projetioc/seisme/modele/Villes.xml");
 		
 		Ville montreal = (Ville)contexte.getBean("montreal");
-		System.out.println("Nom : " + montreal.getNom());
 		
 		Ville sanDiego = (Ville)contexte.getBean("sanDiego");
-		System.out.println("Nom : " + sanDiego.getNom());
 		
 		Ville losAngeles = (Ville)contexte.getBean("losAngeles");
-		System.out.println("Nom : " + losAngeles.getNom());
 		
 		Ville tokyo = (Ville)contexte.getBean("tokyo");
-		System.out.println("Nom : " + tokyo.getNom());
 		
 		
-		List<Ville> liste = new LinkedList<Ville>();
-		
-		vue.afficherMenu("Mondial", 1);
-		vue.afficherMenu("San Diego", 2);
-		vue.afficherMenu("Montreal", 3);
-		vue.afficherMenu("Los angeles", 4);
-		vue.afficherMenu("Tokyo", 5);
+		vue.afficherMenu("Mondiale", 1);
+		vue.afficherMenu(sanDiego.getNom(), 2);
+		vue.afficherMenu(montreal.getNom(), 3);
+		vue.afficherMenu( losAngeles.getNom(), 4);
+		vue.afficherMenu(tokyo.getNom(), 5);
 		
 		List<String> listeMondiale = new ArrayList<String>();
 		List<String> listeSanDiego = new ArrayList<String>();
 		List<String> listeMontreal = new ArrayList<String>();
 		List<String> listeLosAngeles = new ArrayList<String>();
 		List<String> listeTokyo = new ArrayList<String>();
+		
+		DaoSeisme daoSeisme = new DaoSeisme();
+		
+		daoSeisme.rechercherMondialSeisme();
+
 		
 		listeMondiale.add("seisme1");
 		listeMondiale.add("seisme2");
