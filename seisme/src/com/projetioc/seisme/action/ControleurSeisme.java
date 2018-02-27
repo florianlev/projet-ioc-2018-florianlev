@@ -54,7 +54,7 @@ public class ControleurSeisme {
 		List<String> listeTokyo = new ArrayList<String>();
 		
 		DaoSeisme daoSeisme = new DaoSeisme();
-		List<Seisme> listeSeisme = daoSeisme.getListeSeisme();
+		List<Seisme> listeSeisme = daoSeisme.getRechercherMondialSeisme();
 		
 		for (Seisme seisme : listeSeisme)
 	
@@ -68,11 +68,7 @@ public class ControleurSeisme {
 			seisme.getLongitude();
 			}
 
-			//System.out.println(daoSeisme.getListeSeisme());
 		
-		listeMondiale.add("seisme1");
-		listeMondiale.add("seisme2"); 	
-		listeMondiale.add("seisme3");
 		
 		listeSanDiego.add("sexcvxisme1");
 		listeSanDiego.add("seismadsgfe2");

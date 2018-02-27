@@ -32,7 +32,7 @@ public class DaoSeisme<T> {
 	
 	
 	
-	/*public List<String> rechercherVilleSeisme()
+	public List<String> rechercherVilleSeisme()
 	{
 		//listeSeisme = new ArrayList<>();
 		String xmlRssSeismeVille = "";
@@ -98,9 +98,9 @@ public class DaoSeisme<T> {
 
 		//System.out.println(xmlRssSeismeVille);
 		
-	}*/
+	}
 	
-	public void rechercherMondialSeisme()
+	public List<Seisme> getRechercherMondialSeisme()
 	{
 		String xmlRssSeismeMondial = "";
 		URL urlRssSeismeMondial;
@@ -174,16 +174,16 @@ public class DaoSeisme<T> {
 		catch (MalformedURLException e) { e.printStackTrace();} 
 		catch (IOException e) { e.printStackTrace(); }
 		
-
+		return  listeSeisme;
 		//System.out.println(xmlRssSeismeVille);
 		
 	}
 	
-	public List<Seisme> getListeSeisme()
+	/*public List<Seisme> getListeSeisme()
 	{
 		rechercherMondialSeisme();
 		return listeSeisme;
-	}
+	}*/
 	
 	
 	
