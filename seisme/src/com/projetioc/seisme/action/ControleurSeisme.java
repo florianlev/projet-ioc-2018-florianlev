@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.projetioc.seisme.dao.DaoSeisme;
 import com.projetioc.seisme.modele.ListeDesVilles;
+import com.projetioc.seisme.modele.Seisme;
 import com.projetioc.seisme.modele.Ville;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -53,12 +54,24 @@ public class ControleurSeisme {
 		List<String> listeTokyo = new ArrayList<String>();
 		
 		DaoSeisme daoSeisme = new DaoSeisme();
+		List<Seisme> listeSeisme = daoSeisme.getListeSeisme();
 		
-		daoSeisme.rechercherMondialSeisme();
+		for (Seisme seisme : listeSeisme)
+	
+			{
+				listeMondiale.add(seisme.getNom()); 
+				listeMondiale.add(seisme.getMagnitude());
+				listeMondiale.add(seisme.getLatitude()); 
+				listeMondiale.add(seisme.getLongitude());
+			
+			
+			seisme.getLongitude();
+			}
 
+			//System.out.println(daoSeisme.getListeSeisme());
 		
 		listeMondiale.add("seisme1");
-		listeMondiale.add("seisme2");
+		listeMondiale.add("seisme2"); 	
 		listeMondiale.add("seisme3");
 		
 		listeSanDiego.add("sexcvxisme1");

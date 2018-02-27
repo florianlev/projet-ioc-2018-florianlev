@@ -21,7 +21,7 @@ import org.xml.sax.SAXException;
 
 import com.projetioc.seisme.modele.Seisme;
 
-public class DaoSeisme {
+public class DaoSeisme<T> {
 	
 	List<Seisme> listeSeisme;
 	
