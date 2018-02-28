@@ -37,11 +37,14 @@ public class DaoSeisme<T> {
 	public List<Seisme> getRechercherVilleSeisme(String villeOnglet)
 	{
 		//listeSeisme = new ArrayList<>();
+		
 		String xmlRssSeismeVille = "";
 		URL urlRssSeismeVille;
 		try 
 		{
-			urlRssSeismeVille = new URL("https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?source=nn");
+			
+			
+			urlRssSeismeVille = new URL("https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?source=pr&$where=region%20like%20%27%25British%20Virgin%20Islands%25%27");
 			BufferedReader influx = new BufferedReader(new InputStreamReader(urlRssSeismeVille.openStream()));
 			String ligne;
 			while ((ligne = influx.readLine()) != null) xmlRssSeismeVille+=ligne;
@@ -65,26 +68,26 @@ public class DaoSeisme<T> {
 						Element elementSeisme = (Element)noeudFruit;
 
 						//Recuper le nom
-						Node noeudSeisme = elementSeisme.getElementsByTagName("depth").item(0);// juste un nom a chercher dans le fruit
+						Node noeudSeisme = elementSeisme.getElementsByTagName("region").item(0);// juste un nom a chercher dans le fruit
 						Element elementNom = (Element)noeudSeisme;
-						String nom = elementNom.getTextContent();
+						seisme.setNom(elementNom.getTextContent());
 						
 						
-						System.out.println("Nom : " + nom);
-						
-						// Récupérer la couleur
-						Node elementRegion = (Element)elementSeisme.getElementsByTagName("region").item(0);
-						String region = elementRegion.getTextContent();
+						// Récupérer le magnetisme
+						Node noeudMagnitude = (Element)elementSeisme.getElementsByTagName("magnitude").item(0);
+						Element elementMagnitude = (Element)noeudMagnitude;
+						seisme.setMagnitude(elementMagnitude.getTextContent());
 				
-						System.out.println("Couleur : " + region);
+						Node noeudLocation = (Element)elementSeisme.getElementsByTagName("location").item(0);
+						Element elementLocation = (Element)noeudLocation;
+						seisme.setLocalisation(elementLocation.getTextContent());
+						
+						Node noeudNombreStation = (Element)elementSeisme.getElementsByTagName("number_of_stations").item(0);
+						Element elementNombreStation = (Element)noeudNombreStation;
+						seisme.setNombreStations(elementNombreStation.getTextContent());
 						
 						listeSeismeVille.add(seisme);
 						
-						
-						//listeSeisme.add(region, nom);
-						
-						//Fruit fruit = new Fruit(nom, couleur);
-						//listeFruits.put(fruit);
 						
 					}
 				} catch (SAXException | IOException e) {

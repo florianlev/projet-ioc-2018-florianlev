@@ -6,14 +6,33 @@ public class Seisme {
 	private String latitude;
 	private String longitude;
 	private String magnitude;
+	private String localisation;
+	private String nombreStations;
 	
+	public String getNombreStations() {
+		return nombreStations;
+	}
+
+	public void setNombreStations(String nombreStations) {
+		this.nombreStations = nombreStations;
+	}
+
 	public Seisme()
 	{
 		nom = "";
 		latitude = "";
 		longitude = "";
 		magnitude =  "";
+		localisation = "";
 		
+	}
+
+	public String getLocalisation() {
+		return localisation;
+	}
+
+	public void setLocalisation(String localisation) {
+		this.localisation = localisation;
 	}
 
 	public String getNom() {
