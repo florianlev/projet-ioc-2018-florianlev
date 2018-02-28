@@ -43,8 +43,9 @@ public class DaoSeisme<T> {
 		try 
 		{
 			
-			
-			urlRssSeismeVille = new URL("https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?source=pr&$where=region%20like%20%27%25British%20Virgin%20Islands%25%27");
+			villeOnglet = villeOnglet.replaceAll(" ", "%20");
+
+			urlRssSeismeVille = new URL("https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?$where=region%20like%20%27%25"+ villeOnglet +"%27&source=pr");
 			BufferedReader influx = new BufferedReader(new InputStreamReader(urlRssSeismeVille.openStream()));
 			String ligne;
 			while ((ligne = influx.readLine()) != null) xmlRssSeismeVille+=ligne;
