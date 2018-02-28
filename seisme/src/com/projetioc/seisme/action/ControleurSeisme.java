@@ -126,32 +126,15 @@ public class ControleurSeisme {
 			}
 
 		
-		
-		listeSanDiego.add("sexcvxisme1");
-		listeSanDiego.add("seismadsgfe2");
-		listeSanDiego.add("seismxcvxcv3");
-		
-		listeMontreal.add("seisme1");
-		listeMontreal.add("seisme2");
-		listeMontreal.add("seisme3");
-		
-		listeLosAngeles.add("seisme1");
-		listeLosAngeles.add("seisme2");
-		listeLosAngeles.add("seisme3");
-		
-		listeTokyo.add("seisme1");
-		listeTokyo.add("seisme2");
-		listeTokyo.add("seisme3");
-		
-		
-		
+
 		
 		
 		vue.afficherListe(listeMondiale, 1);
-		vue.afficherListe(listeSanDiego, 2);
-		vue.afficherListe(listeMontreal, 3);
-		vue.afficherListe(listeLosAngeles, 4);
-		vue.afficherListe(listeTokyo, 5);
+		vue.afficherListe(listeBritishVirginIsland, 2);
+		vue.afficherListe(listeDominicanRepublic, 3);
+		vue.afficherListe(listePuertoRico, 4);
+		vue.afficherListe(listeCalifornia, 5);
+		vue.afficherListe(listeAlaska, 6);
 		
 		
 	}
