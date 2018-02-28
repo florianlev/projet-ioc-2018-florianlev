@@ -16,11 +16,15 @@ import com.projetioc.seisme.vue.SeismeVue;
 public class ControleurSeisme {
 	
 	protected SeismeVue vue;
+	List<String> listeVille;
+	
 	
 	
 	public ControleurSeisme(SeismeVue vue)
 	{
 		this.vue = vue;
+		listeVille = new ArrayList<>();
+		
 	
 	}
 	
@@ -32,28 +36,81 @@ public class ControleurSeisme {
 		ApplicationContext contexte =
 				new ClassPathXmlApplicationContext("com/projetioc/seisme/modele/Villes.xml");
 		
-		Ville montreal = (Ville)contexte.getBean("montreal");
+		Ville britishVirginIsland = (Ville)contexte.getBean("britishVirginIsland");
 		
-		Ville sanDiego = (Ville)contexte.getBean("sanDiego");
 		
-		Ville losAngeles = (Ville)contexte.getBean("losAngeles");
+		Ville dominicanRepublic = (Ville)contexte.getBean("dominicanRepublic");
 		
-		Ville tokyo = (Ville)contexte.getBean("tokyo");
+		Ville puertoRico = (Ville)contexte.getBean("puertoRico");
+		
+		Ville california = (Ville)contexte.getBean("california");
+		
+		Ville alaska = (Ville)contexte.getBean("alaska");
+		
+		
+		listeVille.add(britishVirginIsland.getNom());
+		listeVille.add(dominicanRepublic.getNom());
+		listeVille.add(puertoRico.getNom());
+		listeVille.add(california.getNom());
+		listeVille.add(alaska.getNom());
+		
 		
 		
 		vue.afficherMenu("Mondiale", 1);
-		vue.afficherMenu(sanDiego.getNom(), 2);
-		vue.afficherMenu(montreal.getNom(), 3);
-		vue.afficherMenu( losAngeles.getNom(), 4);
-		vue.afficherMenu(tokyo.getNom(), 5);
+		vue.afficherMenu(britishVirginIsland.getNom(), 2);
+		vue.afficherMenu(dominicanRepublic.getNom(), 3);
+		vue.afficherMenu(puertoRico.getNom(), 4);
+		vue.afficherMenu(california.getNom(), 5);
+		vue.afficherMenu(alaska.getNom(), 6);
 		
 		List<String> listeMondiale = new ArrayList<String>();
-		List<String> listeSanDiego = new ArrayList<String>();
-		List<String> listeMontreal = new ArrayList<String>();
-		List<String> listeLosAngeles = new ArrayList<String>();
-		List<String> listeTokyo = new ArrayList<String>();
+		List<String> listeBritishVirginIsland = new ArrayList<String>();
+		List<String> listeDominicanRepublic = new ArrayList<String>();
+		List<String> listePuertoRico = new ArrayList<String>();
+		List<String> listeCalifornia = new ArrayList<String>();
+		List<String> listeAlaska = new ArrayList<String>();
+		
+		
 		
 		DaoSeisme daoSeisme = new DaoSeisme();
+		
+		
+		for (String ville : listeVille)
+		{
+			List<Seisme> listeSeismeVille = daoSeisme.getRechercherVilleSeisme(ville);
+			
+			for (Seisme seisme : listeSeismeVille)
+			{
+				listeBritishVirginIsland.add(seisme.getNom());
+				listeBritishVirginIsland.add(seisme.getMagnitude());
+				listeBritishVirginIsland.add(seisme.getLatitude());
+				listeBritishVirginIsland.add(seisme.getLongitude());
+				
+				listeDominicanRepublic.add(seisme.getNom());
+				listeDominicanRepublic.add(seisme.getMagnitude());
+				listeDominicanRepublic.add(seisme.getLatitude());
+				listeDominicanRepublic.add(seisme.getLongitude());
+				
+				listePuertoRico.add(seisme.getNom());
+				listePuertoRico.add(seisme.getMagnitude());
+				listePuertoRico.add(seisme.getLatitude());
+				listePuertoRico.add(seisme.getLongitude());
+				
+				listeCalifornia.add(seisme.getNom());
+				listeCalifornia.add(seisme.getMagnitude());
+				listeCalifornia.add(seisme.getLatitude());
+				listeCalifornia.add(seisme.getLongitude());
+				
+				
+				listeAlaska.add(seisme.getNom());
+				listeAlaska.add(seisme.getMagnitude());
+				listeAlaska.add(seisme.getLatitude());
+				listeAlaska.add(seisme.getLongitude());
+
+			}
+		}
+		
+		
 		List<Seisme> listeSeisme = daoSeisme.getRechercherMondialSeisme();
 		
 		for (Seisme seisme : listeSeisme)

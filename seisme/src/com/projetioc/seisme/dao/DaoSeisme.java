@@ -23,16 +23,18 @@ import com.projetioc.seisme.modele.Seisme;
 
 public class DaoSeisme<T> {
 	
-	List<Seisme> listeSeisme;
+	List<Seisme> listeSeismeMondial;
+	List<Seisme> listeSeismeVille;
 	
 	public DaoSeisme()
 	{
-		listeSeisme = new ArrayList<>();
+		listeSeismeMondial = new ArrayList<>();
+		listeSeismeVille = new ArrayList<>();
 	}
 	
 	
 	
-	public List<String> rechercherVilleSeisme()
+	public List<Seisme> getRechercherVilleSeisme(String villeOnglet)
 	{
 		//listeSeisme = new ArrayList<>();
 		String xmlRssSeismeVille = "";
@@ -56,6 +58,7 @@ public class DaoSeisme<T> {
 					NodeList noeudsListeSeisme = docListeSeisme.getElementsByTagName("row");
 					for(int position = 0; position < noeudsListeSeisme.getLength(); position++)
 					{
+						Seisme seisme = new Seisme();
 						Node noeudFruit = noeudsListeSeisme.item(position);
 						
 						//System.out.println(noeudFruit.getTextContent());
@@ -74,6 +77,9 @@ public class DaoSeisme<T> {
 						String region = elementRegion.getTextContent();
 				
 						System.out.println("Couleur : " + region);
+						
+						listeSeismeVille.add(seisme);
+						
 						
 						//listeSeisme.add(region, nom);
 						
@@ -94,7 +100,7 @@ public class DaoSeisme<T> {
 		} 
 		catch (MalformedURLException e) { e.printStackTrace();} 
 		catch (IOException e) { e.printStackTrace(); }
-		return listeSeisme;
+		return listeSeismeVille;
 
 		//System.out.println(xmlRssSeismeVille);
 		
@@ -154,7 +160,7 @@ public class DaoSeisme<T> {
 						seisme.setMagnitude(elementMagnitude.getTextContent());
 						
 						
-						listeSeisme.add(seisme);
+						listeSeismeMondial.add(seisme);
 						
 						
 						
@@ -174,7 +180,7 @@ public class DaoSeisme<T> {
 		catch (MalformedURLException e) { e.printStackTrace();} 
 		catch (IOException e) { e.printStackTrace(); }
 		
-		return  listeSeisme;
+		return  listeSeismeMondial;
 		//System.out.println(xmlRssSeismeVille);
 		
 	}

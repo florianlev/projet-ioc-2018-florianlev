@@ -6,23 +6,28 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 >
 
 
-	<bean id="montreal" class ="com.projetioc.seisme.modele.Ville">
-		<property name="nom" value="Montreal"/>
+	<bean id="britishVirginIsland" class ="com.projetioc.seisme.modele.Ville">
+		<property name="nom" value="British Virgin Island"/>
 	
 	</bean>
 	
-	<bean id="sanDiego" class ="com.projetioc.seisme.modele.Ville">
-		<property name="nom" value="San Diego"/>
+	<bean id="dominicanRepublic" class ="com.projetioc.seisme.modele.Ville">
+		<property name="nom" value="Dominican Republic"/>
 	
 	</bean>
 	
-	<bean id="losAngeles" class ="com.projetioc.seisme.modele.Ville">
-		<property name="nom" value="Los Angeles"/>
+	<bean id="puertoRico" class ="com.projetioc.seisme.modele.Ville">
+		<property name="nom" value="Puerto Rico"/>
 	
 	</bean>
 	
-	<bean id="tokyo" class ="com.projetioc.seisme.modele.Ville">
-		<property name="nom" value="Tokyo"/>
+	<bean id="california" class ="com.projetioc.seisme.modele.Ville">
+		<property name="nom" value="California"/>
+	
+	</bean>
+	
+	<bean id="alaska" class ="com.projetioc.seisme.modele.Ville">
+		<property name="nom" value="Alaska"/>
 	
 	</bean>
 
@@ -36,22 +41,27 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<property name="sourceList">
 			<list>
 				<bean class ="com.projetioc.seisme.modele.Ville">
-					<property name="nom" value="Montreal"/>
+					<property name="nom" value="British Virgin Island"/>
 	
 				</bean>
 				
 				<bean class ="com.projetioc.seisme.modele.Ville">
-					<property name="nom" value="San Diego"/>
+					<property name="nom" value="Dominican Republic"/>
 	
 				</bean>
 				
 				<bean class ="com.projetioc.seisme.modele.Ville">
-					<property name="nom" value="Los Angeles"/>
+					<property name="nom" value="Puerto Rico"/>
 	
 				</bean>
 				
 				<bean class ="com.projetioc.seisme.modele.Ville">
-					<property name="nom" value="Tokyo"/>
+					<property name="nom" value="California"/>
+	
+				</bean>
+				
+				<bean class ="com.projetioc.seisme.modele.Ville">
+					<property name="nom" value="Alaska"/>
 	
 				</bean>
 			
