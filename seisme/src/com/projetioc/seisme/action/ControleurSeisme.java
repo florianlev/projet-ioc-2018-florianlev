@@ -94,19 +94,31 @@ public class ControleurSeisme {
 					case "Dominican Republic":
 						
 						listeDominicanRepublic.add(seisme.getNom());
+						listeDominicanRepublic.add(seisme.getMagnitude());
+						listeDominicanRepublic.add(seisme.getLocalisation());
+						listeDominicanRepublic.add(seisme.getNombreStations());
 						break;
 						
 					case "Puerto Rico":
 						
 						listePuertoRico.add(seisme.getNom());
+						listePuertoRico.add(seisme.getMagnitude());
+						listePuertoRico.add(seisme.getLocalisation());
+						listePuertoRico.add(seisme.getNombreStations());
+						
 						break;
 					case "California":
 						
 						listeCalifornia.add(seisme.getNom());
-						break;
+						listeCalifornia.add(seisme.getMagnitude());
+						listeCalifornia.add(seisme.getLocalisation());
+						listeCalifornia.add(seisme.getNombreStations());						break;
 					case "Alaska":
 						
 						listeAlaska.add(seisme.getNom());
+						listeAlaska.add(seisme.getMagnitude());
+						listeAlaska.add(seisme.getLocalisation());
+						listeAlaska.add(seisme.getNombreStations());	
 						break;
 				}
 			
