@@ -124,7 +124,7 @@ public class SeismeVue<liste> extends Application {
 				switch(page)
 				{
 				case 1:
-					System.out.println("page" +page);
+					//System.out.println("page" +page);
 
 					
 					ListView<String> listeview = new ListView<String>();

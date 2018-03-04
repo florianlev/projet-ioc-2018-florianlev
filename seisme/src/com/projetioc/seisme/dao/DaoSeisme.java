@@ -44,8 +44,10 @@ public class DaoSeisme<T> {
 		{
 			
 			villeOnglet = villeOnglet.replaceAll(" ", "%20");
-
-			urlRssSeismeVille = new URL("https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?$where=region%20like%20%27%25"+ villeOnglet +"%27&source=pr");
+			//System.out.println(villeOnglet);
+			
+			//https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?$where=region%20like%20%27%25British%20Virgin%20Island%25%27&
+			urlRssSeismeVille = new URL("https://soda.demo.socrata.com/resource/6yvf-kk3n.xml?$where=region%20like%20%27%25"+ villeOnglet +"%25%27");
 			BufferedReader influx = new BufferedReader(new InputStreamReader(urlRssSeismeVille.openStream()));
 			String ligne;
 			while ((ligne = influx.readLine()) != null) xmlRssSeismeVille+=ligne;
@@ -58,7 +60,7 @@ public class DaoSeisme<T> {
 				try {
 					Document docListeSeisme = parseur.parse(new StringBufferInputStream (xmlRssSeismeVille));
 					String racine = docListeSeisme.getDocumentElement().getNodeName();
-					System.out.println("Racine:" + racine);
+					//System.out.println("Racine:" + racine);
 					NodeList noeudsListeSeisme = docListeSeisme.getElementsByTagName("row");
 					for(int position = 0; position < noeudsListeSeisme.getLength(); position++)
 					{
@@ -74,18 +76,20 @@ public class DaoSeisme<T> {
 						seisme.setNom(elementNom.getTextContent());
 						
 						
+						
+						
 						// Récupérer le magnetisme
 						Node noeudMagnitude = (Element)elementSeisme.getElementsByTagName("magnitude").item(0);
 						Element elementMagnitude = (Element)noeudMagnitude;
 						seisme.setMagnitude(elementMagnitude.getTextContent());
 				
-						Node noeudLocation = (Element)elementSeisme.getElementsByTagName("location").item(0);
+						/*Node noeudLocation = (Element)elementSeisme.getElementsByTagName("location").item(0);
 						Element elementLocation = (Element)noeudLocation;
-						seisme.setLocalisation(elementLocation.getTextContent());
+						seisme.setLocalisation(elementLocation.getTextContent());*/
 						
-						Node noeudNombreStation = (Element)elementSeisme.getElementsByTagName("number_of_stations").item(0);
+						/*Node noeudNombreStation = (Element)elementSeisme.getElementsByTagName("number_of_stations").item(0);
 						Element elementNombreStation = (Element)noeudNombreStation;
-						seisme.setNombreStations(elementNombreStation.getTextContent());
+						seisme.setNombreStations(elementNombreStation.getTextContent());*/
 						
 						listeSeismeVille.add(seisme);
 						
@@ -188,13 +192,6 @@ public class DaoSeisme<T> {
 		//System.out.println(xmlRssSeismeVille);
 		
 	}
-	
-	/*public List<Seisme> getListeSeisme()
-	{
-		rechercherMondialSeisme();
-		return listeSeisme;
-	}*/
-	
 	
 	
 	

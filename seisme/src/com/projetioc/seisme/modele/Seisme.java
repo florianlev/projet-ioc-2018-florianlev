@@ -2,7 +2,7 @@ package com.projetioc.seisme.modele;
 
 public class Seisme {
 	
-	private String  nom;
+	private String nom;
 	private String latitude;
 	private String longitude;
 	private String magnitude;

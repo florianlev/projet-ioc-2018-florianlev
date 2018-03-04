@@ -75,16 +75,51 @@ public class ControleurSeisme {
 		DaoSeisme daoSeisme = new DaoSeisme();
 		
 		
-		for (String ville : listeVille)
+		for (int i = 0; i < listeVille.size(); i++)
 		{
-			List<Seisme> listeSeismeVille = daoSeisme.getRechercherVilleSeisme(ville);
 			
-			for (Seisme seisme : listeSeismeVille)
+			List<Seisme> listeSeismeVille = daoSeisme.getRechercherVilleSeisme(listeVille.get(i));
+			
+			switch (listeVille.get(i))
 			{
-				listeBritishVirginIsland.add(seisme.getNom());
-				listeBritishVirginIsland.add(seisme.getMagnitude());
-				listeBritishVirginIsland.add(seisme.getLatitude());
-				listeBritishVirginIsland.add(seisme.getLongitude());
+			case "British Virgin Island":
+				for (Seisme seisme : listeSeismeVille)
+				{
+					listeBritishVirginIsland.add(seisme.getNom());
+			
+				}
+				break;
+			
+			}
+			//if (listeVille.get(i) == "Alaska")
+			//{
+				
+				/*for (Seisme seisme : listeSeismeVille)
+				{
+					System.out.println(seisme.getNom());
+
+					
+				}*/
+				
+			//}
+			
+		
+			
+			/*for (Seisme seisme : listeSeismeVille)
+			{
+				System.out.println(ville);
+				if(ville == "California") 
+				{
+					System.out.println(seisme.getNom());
+
+					listeBritishVirginIsland.add(seisme.getNom());
+					
+					
+					//listeBritishVirginIsland.add(seisme.getMagnitude());
+					//listeBritishVirginIsland.add(seisme.getLatitude());
+					//listeBritishVirginIsland.add(seisme.getLongitude());
+				}
+				
 				
 				listeDominicanRepublic.add(seisme.getNom());
 				listeDominicanRepublic.add(seisme.getMagnitude());
@@ -107,8 +142,9 @@ public class ControleurSeisme {
 				listeAlaska.add(seisme.getLatitude());
 				listeAlaska.add(seisme.getLongitude());
 
-			}
+			}*/
 		}
+		//System.out.println(listeBritishVirginIsland);
 		
 		
 		List<Seisme> listeSeisme = daoSeisme.getRechercherMondialSeisme();
