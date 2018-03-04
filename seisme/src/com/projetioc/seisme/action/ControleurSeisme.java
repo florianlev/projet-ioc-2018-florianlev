@@ -84,8 +84,11 @@ public class ControleurSeisme {
 				switch (listeVille.get(i))
 				{
 					case "British Virgin Island":
-				
+						
 						listeBritishVirginIsland.add(seisme.getNom());
+						listeBritishVirginIsland.add(seisme.getMagnitude());
+						listeBritishVirginIsland.add(seisme.getLocalisation());
+						listeBritishVirginIsland.add(seisme.getNombreStations());
 						
 						break;
 					case "Dominican Republic":

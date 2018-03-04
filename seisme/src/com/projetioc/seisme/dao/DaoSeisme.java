@@ -73,7 +73,7 @@ public class DaoSeisme<T> {
 						//Recuper le nom
 						Node noeudSeisme = elementSeisme.getElementsByTagName("region").item(0);// juste un nom a chercher dans le fruit
 						Element elementNom = (Element)noeudSeisme;
-						seisme.setNom(elementNom.getTextContent());
+						seisme.setNom("Lieu : " + elementNom.getTextContent());
 						
 						
 						
@@ -81,15 +81,23 @@ public class DaoSeisme<T> {
 						// Récupérer le magnetisme
 						Node noeudMagnitude = (Element)elementSeisme.getElementsByTagName("magnitude").item(0);
 						Element elementMagnitude = (Element)noeudMagnitude;
-						seisme.setMagnitude(elementMagnitude.getTextContent());
+					
+						seisme.setMagnitude("Magnitude : " + elementMagnitude.getTextContent());
 				
 						Node noeudLocation = (Element)elementSeisme.getElementsByTagName("location").item(0);
 						Element elementLocation = (Element)noeudLocation;
-						seisme.setLocalisation(elementLocation.getTextContent());
+						if(noeudLocation == null || elementLocation.getTextContent() == "null") {}
+					
+						else {seisme.setLocalisation("Localisation : " + elementLocation.getTextContent());}
+									
 						
+					
 						Node noeudNombreStation = (Element)elementSeisme.getElementsByTagName("number_of_stations").item(0);
 						Element elementNombreStation = (Element)noeudNombreStation;
-						seisme.setNombreStations(elementNombreStation.getTextContent());
+						if(noeudNombreStation == null || elementNombreStation.getTextContent() == "null") {}
+						
+						else {seisme.setNombreStations("Nombre de stations : " + elementNombreStation.getTextContent());}
+					
 						
 						listeSeismeVille.add(seisme);
 						
@@ -147,25 +155,25 @@ public class DaoSeisme<T> {
 						//Recuper le nom
 						Node noeudNom = elementSeisme.getElementsByTagName("description").item(0);
 						Element elementNom = (Element)noeudNom;
-						seisme.setNom(elementNom.getTextContent());
+						seisme.setNom("Lieu : " + elementNom.getTextContent());
 						
 						
 						//Latitude
 						Node noeudLatitude = elementSeisme.getElementsByTagName("latitude").item(0);
 						Element elementLatitude = (Element)noeudLatitude;
-						seisme.setLatitude(elementLatitude.getTextContent());
+						seisme.setLatitude("Latitude : " + elementLatitude.getTextContent());
 						
 						//Longitude
 						
 						Node noeudLongitude = elementSeisme.getElementsByTagName("longitude").item(0);
 						Element elementLongitude = (Element)noeudLongitude;
-						seisme.setLongitude(elementLongitude.getTextContent());
+						seisme.setLongitude("Longitude : " + elementLongitude.getTextContent());
 						
 						//magnitude
 						
-						Node noeudMagnitude = elementSeisme.getElementsByTagName("longitude").item(0);
+						Node noeudMagnitude = elementSeisme.getElementsByTagName("magnitude").item(0);
 						Element elementMagnitude = (Element)noeudMagnitude;
-						seisme.setMagnitude(elementMagnitude.getTextContent());
+						seisme.setMagnitude("Magnitude : " + elementMagnitude.getTextContent());
 						
 						
 						listeSeismeMondial.add(seisme);
