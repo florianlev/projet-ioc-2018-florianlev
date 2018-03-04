@@ -193,6 +193,11 @@ public class DaoSeisme<T> {
 		
 	}
 	
+	public void nettoyerListeVille()
+	{
+		listeSeismeVille.clear();
+	}
+	
 	
 	
 }
