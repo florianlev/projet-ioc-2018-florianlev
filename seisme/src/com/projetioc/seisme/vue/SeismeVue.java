@@ -157,7 +157,7 @@ public class SeismeVue<liste> extends Application {
 				case 6:
 					ListView<String> listeview6 = new ListView<String>();
 					listeview6.setItems(items);
-					ville5.setContent(listeview6);
+					ville6.setContent(listeview6);
 					break;
 				
 			}

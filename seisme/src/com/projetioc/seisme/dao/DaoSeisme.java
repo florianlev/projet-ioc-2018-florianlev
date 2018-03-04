@@ -83,13 +83,13 @@ public class DaoSeisme<T> {
 						Element elementMagnitude = (Element)noeudMagnitude;
 						seisme.setMagnitude(elementMagnitude.getTextContent());
 				
-						/*Node noeudLocation = (Element)elementSeisme.getElementsByTagName("location").item(0);
+						Node noeudLocation = (Element)elementSeisme.getElementsByTagName("location").item(0);
 						Element elementLocation = (Element)noeudLocation;
-						seisme.setLocalisation(elementLocation.getTextContent());*/
+						seisme.setLocalisation(elementLocation.getTextContent());
 						
-						/*Node noeudNombreStation = (Element)elementSeisme.getElementsByTagName("number_of_stations").item(0);
+						Node noeudNombreStation = (Element)elementSeisme.getElementsByTagName("number_of_stations").item(0);
 						Element elementNombreStation = (Element)noeudNombreStation;
-						seisme.setNombreStations(elementNombreStation.getTextContent());*/
+						seisme.setNombreStations(elementNombreStation.getTextContent());
 						
 						listeSeismeVille.add(seisme);
 						

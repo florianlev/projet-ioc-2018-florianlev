@@ -97,64 +97,20 @@ public class ControleurSeisme {
 						
 						listePuertoRico.add(seisme.getNom());
 						break;
-		
-				
+					case "California":
+						
+						listeCalifornia.add(seisme.getNom());
+						break;
+					case "Alaska":
+						
+						listeAlaska.add(seisme.getNom());
+						break;
 				}
 			
 			}
 			daoSeisme.nettoyerListeVille();
-			//if (listeVille.get(i) == "Alaska")
-			//{
-				
-				/*for (Seisme seisme : listeSeismeVille)
-				{
-					System.out.println(seisme.getNom());
 
-					
-				}*/
-				
-			//}
-			
-		
-			
-			/*for (Seisme seisme : listeSeismeVille)
-			{
-				System.out.println(ville);
-				if(ville == "California") 
-				{
-					System.out.println(seisme.getNom());
 
-					listeBritishVirginIsland.add(seisme.getNom());
-					
-					
-					//listeBritishVirginIsland.add(seisme.getMagnitude());
-					//listeBritishVirginIsland.add(seisme.getLatitude());
-					//listeBritishVirginIsland.add(seisme.getLongitude());
-				}
-				
-				
-				listeDominicanRepublic.add(seisme.getNom());
-				listeDominicanRepublic.add(seisme.getMagnitude());
-				listeDominicanRepublic.add(seisme.getLatitude());
-				listeDominicanRepublic.add(seisme.getLongitude());
-				
-				listePuertoRico.add(seisme.getNom());
-				listePuertoRico.add(seisme.getMagnitude());
-				listePuertoRico.add(seisme.getLatitude());
-				listePuertoRico.add(seisme.getLongitude());
-				
-				listeCalifornia.add(seisme.getNom());
-				listeCalifornia.add(seisme.getMagnitude());
-				listeCalifornia.add(seisme.getLatitude());
-				listeCalifornia.add(seisme.getLongitude());
-				
-				
-				listeAlaska.add(seisme.getNom());
-				listeAlaska.add(seisme.getMagnitude());
-				listeAlaska.add(seisme.getLatitude());
-				listeAlaska.add(seisme.getLongitude());
-
-			}*/
 		}
 		//System.out.println(listeBritishVirginIsland);
 		
