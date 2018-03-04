@@ -77,7 +77,7 @@ public class ControleurSeisme {
 		
 		for (int i = 0; i < listeVille.size(); i++)
 		{
-			daoSeisme.nettoyerListeVille();
+			
 			List<Seisme> listeSeismeVille = daoSeisme.getRechercherVilleSeisme(listeVille.get(i));
 			for (Seisme seisme : listeSeismeVille)
 			{
@@ -92,11 +92,17 @@ public class ControleurSeisme {
 						
 						listeDominicanRepublic.add(seisme.getNom());
 						break;
+						
+					case "Puerto Rico":
+						
+						listePuertoRico.add(seisme.getNom());
+						break;
 		
 				
 				}
 			
 			}
+			daoSeisme.nettoyerListeVille();
 			//if (listeVille.get(i) == "Alaska")
 			//{
 				
