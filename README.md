@@ -7,6 +7,7 @@ Sous chaque lieu apparait la liste des récents séismes (tremblements de terre)
 
 * JAVA
 * spring
+* XML
 * Design pattern : Visiteur
 
 # Crédit 
